@@ -5,8 +5,9 @@ const { login } = require('../actions/login');
 test('attack list', async ({ page }) => {
   await login(page, process.env.USERNAME, process.env.PASSWORD);
 
-  const attackListUrl = process.env.SERVER_URL + '';
+  const attackListUrl = `${process.env.SERVER_URL}${process.env.ATTACK_LIST_RELATIVE_URL}`;
   await page.goto(attackListUrl);
+  await page.waitForTimeout(5000);
 
   const interval = parseInt(process.env.CLICK_INTERVAL_MINUTES || 10) * 60 * 1000;
 

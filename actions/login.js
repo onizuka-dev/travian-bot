@@ -1,7 +1,7 @@
 import 'dotenv/config';
 
 async function login(page, username, password) {
-  await page.goto(process.env.SERVER_URL);
+  await page.goto(`${process.env.SERVER_URL}/dorf1.php`);
 
   const loginScreen = await page.locator('input[placeholder="Email address / account name"]').isVisible();
 
